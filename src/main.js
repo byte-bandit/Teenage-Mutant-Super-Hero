@@ -20,6 +20,12 @@ var Mutate = window.Mutate || {};
       this.game.scale.pageAlignHorizontally = true;
       this.game.scale.pageAlignVertically = true;
       this.game.scale.refresh();
+
+      this.game.state.add('Preload', Mutate.Preload);
+      this.game.state.add('Map', Mutate.Map);
+      this.game.state.add('MainMenu', Mutate.MainMenu);
+
+      this.game.state.start('Preload');
     },
 
     onUpdate: function() {
