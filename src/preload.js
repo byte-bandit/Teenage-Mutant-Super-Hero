@@ -11,7 +11,10 @@ Mutate.Preload.prototype = {
     // Insert Shiny Loading here
 
     // Load game assets
-    this.load.image('mainMenuBackground', 'media/Background_LD65.png');
+    this.load.image('mainMenuBackground', 'media/titlescreen/background.png');
+    this.load.image('mute', 'media/titlescreen/mute.png');
+    this.load.image('sound', 'media/titlescreen/sound.png');
+    this.load.image('startbutton', 'media/titlescreen/startbutton.png');
 
     this.load.image('msLayer1', 'media/backgrounds/msLayer1.png');
     this.load.image('msLayer2', 'media/backgrounds/msLayer2.png');
@@ -29,6 +32,6 @@ Mutate.Preload.prototype = {
   },
 
   create: function() {
-    this.state.start('Map');
+    this.state.start('MainMenu');
   }
 }
