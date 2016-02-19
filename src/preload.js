@@ -10,6 +10,12 @@ Mutate.Preload.prototype = {
 
   preload: function() {
     // Insert Shiny Loading here
+    var text = this.game.add.text(this.game.world.centerX, this.game.world.centerY, "Loading...");
+    text.font = 'Arial Black';
+    text.fontSize = 72;
+    text.fontWeight = 'bold';
+    text.fill = '#ffffff';
+    text.anchor.setTo(0.5, 0.5);
 
     // Scripts
     this.load.script('src/buttonlib');
@@ -35,6 +41,21 @@ Mutate.Preload.prototype = {
     this.load.image('powerplant', 'media/buildings/powerplant.png');
     this.load.image('tracks', 'media/buildings/tracks.png');
     this.load.image('zoo', 'media/buildings/zoo.png');
+
+    this.load.image('airportJetEngine', 'media/HUD/buttons/airport1.png');
+    this.load.image('airportFukushima', 'media/HUD/buttons/airport2.png');
+    this.load.image('homeSunbath', 'media/HUD/buttons/home1.png');
+    this.load.image('homeMicrowave', 'media/HUD/buttons/home2.png');
+    this.load.image('hospitalXRay', 'media/HUD/buttons/hospital1.png');
+    this.load.image('hospitalHeal', 'media/HUD/buttons/hospital2.png');
+    this.load.image('hospitalVaccine', 'media/HUD/buttons/hospital3.png');
+    this.load.image('libraryStudy', 'media/HUD/buttons/library1.png');
+    this.load.image('powerplantPlay', 'media/HUD/buttons/powerplant1.png');
+    this.load.image('powerplantVisit', 'media/HUD/buttons/powerplant2.png');
+    this.load.image('powerplantBuy', 'media/HUD/buttons/powerplant3.png');
+    this.load.image('sewerFind', 'media/HUD/buttons/sewer1.png');
+    this.load.image('tracksCastor', 'media/HUD/buttons/tracks1.png');
+    this.load.image('zooBite', 'media/HUD/buttons/zoo1.png');
   },
 
   create: function() {
