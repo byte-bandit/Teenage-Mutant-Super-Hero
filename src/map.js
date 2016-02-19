@@ -12,6 +12,7 @@ Mutate.Map.prototype = {
     this.hotspots = [];
 
   	this.game.add.sprite(0, 0, 'msLayer4');
+    this.sun = new Mutate.Sun(1280-128, 96);
 
     this.game.add.sprite(0, 0, 'msLayer3');
     this.createHotspot(543, 260, 'airport', [Mutate.Actions.JetEngine, Mutate.Actions.Fukushima]);

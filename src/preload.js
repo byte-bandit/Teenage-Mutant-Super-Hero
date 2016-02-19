@@ -22,6 +22,7 @@ Mutate.Preload.prototype = {
     this.load.script('src/stats');
     this.load.script('src/actions');
     this.load.script('src/player');
+    this.load.script('src/sun');
     this.load.script('src/mainMenu');
     this.load.script('src/map');
 
@@ -35,6 +36,10 @@ Mutate.Preload.prototype = {
     this.load.image('msLayer2', 'media/backgrounds/msLayer2.png');
     this.load.image('msLayer3', 'media/backgrounds/msLayer3.png');
     this.load.image('msLayer4', 'media/backgrounds/msLayer4.png');
+
+    this.load.image('cloud', 'media/backgrounds/happylittlecloud.png');
+    this.load.image('sun', 'media/backgrounds/sun.png');
+    this.load.image('sunray', 'media/backgrounds/sunray.png');
 
     this.load.image('airport', 'media/buildings/airport.png');
     this.load.image('hole', 'media/buildings/hole.png');
