@@ -11,7 +11,7 @@ Mutate.Map.prototype = {
   create: function() {
     this.hotspots = [];
 
-  	this.game.add.sprite(0, 0, 'msLayer4');
+    this.game.add.sprite(0, 0, 'msLayer4');
     new Mutate.Sun(1280-128, 96);
 
     this.spawnClouds();
@@ -21,18 +21,18 @@ Mutate.Map.prototype = {
     this.createHotspot(188, 255, 'hospital', [Mutate.Actions.XRay, Mutate.Actions.Heal, Mutate.Actions.Vaccine]);
     this.createHotspot(1147, 294, 'powerplant', [Mutate.Actions.Play, Mutate.Actions.Visit, Mutate.Actions.Buy]);
 
-  	this.game.add.sprite(0, 0, 'msLayer2');
+    this.game.add.sprite(0, 0, 'msLayer2');
     this.createHotspot(330, 502, 'tracks', [Mutate.Actions.Castor]);
     this.createHotspot(860, 355, 'library', [Mutate.Actions.Study]);
     this.createHotspot(1242, 576, 'zoo', [Mutate.Actions.Bite]);
 
-  	this.game.add.sprite(0, 0, 'msLayer1');
+    this.game.add.sprite(0, 0, 'msLayer1');
     this.createHotspot(30, 478, 'home', [Mutate.Actions.Sunbath, Mutate.Actions.Microwave]);
     this.createHotspot(703, 662, 'hole', [Mutate.Actions.Find]);
 
-  	var graphics = this.game.add.graphics(0,0);
-  	graphics.beginFill(0xffc400, 0.8);
-  	graphics.drawRoundedRect(16, 16, 256, 128, 8);
+    var graphics = this.game.add.graphics(0,0);
+    graphics.beginFill(0xffc400, 0.8);
+    graphics.drawRoundedRect(16, 16, 256, 128, 8);
 
     this.drawText(32, 32, "Name: " + Mutate.Player.name);
     this.drawText(32, 32, "Name: " + Mutate.Player.name);
