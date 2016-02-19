@@ -3,7 +3,7 @@ var Mutate = window.Mutate || {};
 
 (function() {
   Mutate.Engine = function(width, height) {
-    this.game = new Phaser.Game(width, height, Phaser.AUTO, "", {preload: this.onPreload, create: this.onCreate, update: this.onUpdate, render: this.onRender}, false, false);
+    this.game = new Phaser.Game(width, height, Phaser.AUTO, "", {preload: this.onPreload, create: this.onCreate, update: this.onUpdate, render: this.onRender}, false, true);
 
     Mutate.game = this.game;
   };

@@ -12,7 +12,9 @@ Mutate.Map.prototype = {
     this.hotspots = [];
 
   	this.game.add.sprite(0, 0, 'msLayer4');
-    this.sun = new Mutate.Sun(1280-128, 96);
+    new Mutate.Sun(1280-128, 96);
+
+    this.spawnClouds();
 
     this.game.add.sprite(0, 0, 'msLayer3');
     this.createHotspot(543, 260, 'airport', [Mutate.Actions.JetEngine, Mutate.Actions.Fukushima]);
@@ -49,6 +51,31 @@ Mutate.Map.prototype = {
     });
 
     this.activeActions = this.game.add.group();
+  },
+
+  spawnClouds: function() {
+    var wind = this.game.rnd.pick([-1, 1]);
+
+    for(var i = 1; i <= this.game.rnd.between(3, 5); i++)
+    {
+      var cloud = this.game.add.sprite(this.game.rnd.between(0, this.game.renderer.width), this.game.rnd.between(0, 132), 'cloud');
+      cloud.alpha = .9;
+      cloud.checkWorldBounds = true;
+      cloud.events.onOutOfBounds.add(function(c) {
+        if (c.x < 0)
+        {
+          c.x = Mutate.game.renderer.width + c.width;
+        }
+        else
+        {
+          c.x = 0 - c.width;
+        }
+        c.y = c.game.rnd.between(0, 132);
+        c.schpeed = (Mutate.game.rnd.realInRange(0.1, 0.5)) * wind;
+      });
+      cloud.schpeed = (Mutate.game.rnd.realInRange(0.1, 0.5)) * wind;
+      cloud.update = function() {this.x +=  this.schpeed;};
+    }
   },
 
   update: function() {
