@@ -19,6 +19,9 @@ Mutate.Preload.prototype = {
 
     // Scripts
     this.load.script('src/buttonlib');
+    this.load.script('src/stats');
+    this.load.script('src/actions');
+    this.load.script('src/player');
     this.load.script('src/mainMenu');
     this.load.script('src/map');
 

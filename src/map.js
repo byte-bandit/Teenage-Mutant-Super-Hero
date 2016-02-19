@@ -14,35 +14,28 @@ Mutate.Map.prototype = {
   	this.game.add.sprite(0, 0, 'msLayer4');
 
     this.game.add.sprite(0, 0, 'msLayer3');
-    this.createHotspot(543, 260, 'airport');
-    this.createHotspot(188, 255, 'hospital');
-    this.createHotspot(1147, 294, 'powerplant');
+    this.createHotspot(543, 260, 'airport', [Mutate.Actions.JetEngine, Mutate.Actions.Fukushima]);
+    this.createHotspot(188, 255, 'hospital', [Mutate.Actions.XRay, Mutate.Actions.Heal, Mutate.Actions.Vaccine]);
+    this.createHotspot(1147, 294, 'powerplant', [Mutate.Actions.Play, Mutate.Actions.Visit, Mutate.Actions.Buy]);
 
   	this.game.add.sprite(0, 0, 'msLayer2');
-    this.createHotspot(330, 502, 'tracks');
-    this.createHotspot(860, 355, 'library');
-    this.createHotspot(1242, 576, 'zoo');
+    this.createHotspot(330, 502, 'tracks', [Mutate.Actions.Castor]);
+    this.createHotspot(860, 355, 'library', [Mutate.Actions.Study]);
+    this.createHotspot(1242, 576, 'zoo', [Mutate.Actions.Bite]);
 
   	this.game.add.sprite(0, 0, 'msLayer1');
-    this.createHotspot(30, 478, 'home');
-    this.createHotspot(703, 662, 'hole');
-
-
-    this.player = {
-      name: "Morten",
-      life: 100,
-      mutation: 0,
-      iq: 70
-    }
+    this.createHotspot(30, 478, 'home', [Mutate.Actions.Sunbath, Mutate.Actions.Microwave]);
+    this.createHotspot(703, 662, 'hole', [Mutate.Actions.Find]);
 
   	var graphics = this.game.add.graphics(0,0);
   	graphics.beginFill(0xffc400, 0.8);
   	graphics.drawRoundedRect(16, 16, 256, 128, 8);
-    
-    this.drawText(32, 32, "Name: " + this.player.name);
-    this.drawText(32, 56, "Life: " + this.player.life);
-    this.drawText(32, 80, "Mutation: " + this.player.mutation);
-    this.drawText(32, 104, "IQ: " + this.player.iq);
+
+    this.drawText(32, 32, "Name: " + Mutate.Player.name);
+    this.drawText(32, 32, "Name: " + Mutate.Player.name);
+    this.drawText(32, 56, "Life: " + Mutate.Player.life);
+    this.drawText(32, 80, "Mutation: " + Mutate.Player.mutation);
+    this.drawText(32, 104, "IQ: " + Mutate.Player.iq);
 
     this.hotspots.forEach(function(hotspot) {
       hotspot.inputEnabled = true;
@@ -53,13 +46,18 @@ Mutate.Map.prototype = {
       hotspot.events.onInputOut.add(Mutate.ButtonLib.onHotspotOut);
       hotspot.events.onInputDown.add(Mutate.ButtonLib.onHotspotDown);
     });
+
+    this.activeActions = this.game.add.group();
   },
 
   update: function() {
   },
 
-  createHotspot: function(x, y, name) {
-    this.hotspots.push(this.game.add.sprite(x, y, name));
+  createHotspot: function(x, y, name, actions) {
+    var tmp = this.game.add.sprite(x, y, name);
+    tmp.actions = actions;
+    tmp.events.onInputDown.add(this.hotspotClick, this);
+    this.hotspots.push(tmp);
   },
 
   drawText: function(x, y, text) {
@@ -71,5 +69,26 @@ Mutate.Map.prototype = {
     text.stroke = '#ffffff';
     text.strokeThickness = 2;
     return text;
+  },
+
+  hotspotClick: function(spot) {
+    if (this.activeActions.total > 0)
+    {
+      this.activeActions.removeAll(true);
+    }
+
+    for (var i = 0; i < spot.actions.length; i++)
+    {
+      var btn = Mutate.ButtonLib.createActionButton(spot.actions[i].img, i + 1, spot.actions.length, this.actionClick, this);
+      btn.action = spot.actions[i];
+      this.activeActions.add(btn);
+    }
+  },
+
+  actionClick: function(btn) {
+    this.activeActions.forEach(function(b) {
+      Mutate.game.add.tween(b).to({x: b.originalPosition.x, y: b.originalPosition.y}, 250, Phaser.Easing.Quadratic.Out, true).onComplete.add(function() {b.destroy();});
+      Mutate.game.add.tween(b).to({alpha: 0}, 250, Phaser.Easing.Quadratic.Out, true);
+    }, this);
   }
 }
