@@ -223,7 +223,7 @@ Mutate.Actions = {
 		name: "Study",
 		desc: "You study hard to increase your IQ.",
 		img: "libraryStudy",
-		iq: 0
+		iq: 0,
 		results:
 		[
 			{
@@ -341,7 +341,7 @@ Mutate.Actions = {
 		name: "A Quest!",
 		desc: "Time to find your rat martial arts trainer!",
 		img: "sewerFind",
-		iq: 0
+		iq: 0,
 		results:
 		[
 			{
@@ -401,7 +401,7 @@ Mutate.Actions = {
 		name: "Spiderbite",
 		desc: "Well ... it worked before?",
 		img: "zooBite",
-		iq: 80
+		iq: 80,
 		results:
 		[
 			{
