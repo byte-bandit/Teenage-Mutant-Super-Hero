@@ -1,4 +1,5 @@
 "use strict";
+var Mutate = window.Mutate || {};
 
 Mutate.Preload = function (game) {
 
@@ -9,6 +10,11 @@ Mutate.Preload.prototype = {
 
   preload: function() {
     // Insert Shiny Loading here
+
+    // Scripts
+    this.load.script('src/buttonlib');
+    this.load.script('src/mainMenu');
+    this.load.script('src/map');
 
     // Load game assets
     this.load.image('mainMenuBackground', 'media/titlescreen/background.png');
@@ -32,6 +38,9 @@ Mutate.Preload.prototype = {
   },
 
   create: function() {
+    this.game.state.add('Map', Mutate.Map);
+    this.game.state.add('MainMenu', Mutate.MainMenu);
+
     this.state.start('MainMenu');
   }
 }

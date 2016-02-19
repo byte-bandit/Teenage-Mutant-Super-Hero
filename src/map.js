@@ -1,4 +1,5 @@
 "use strict";
+var Mutate = window.Mutate || {};
 
 Mutate.Map = function (game) {
 
@@ -45,22 +46,16 @@ Mutate.Map.prototype = {
 
     this.hotspots.forEach(function(hotspot) {
       hotspot.inputEnabled = true;
-      hotspot.pixelPerfectOver = true;
+      hotspot.input.pixelPerfectOver = true;
+      hotspot.input.pixelPerfectClick = true;
       hotspot.anchor.setTo(0.5, 0.5);
+      hotspot.events.onInputOver.add(Mutate.ButtonLib.onHotspotOver);
+      hotspot.events.onInputOut.add(Mutate.ButtonLib.onHotspotOut);
+      hotspot.events.onInputDown.add(Mutate.ButtonLib.onHotspotDown);
     });
   },
 
   update: function() {
-    this.hotspots.forEach(function(hotspot) {
-      if (hotspot.input.pointerOver())
-      {
-        hotspot.tint = 0x66FF66;
-      }
-      else
-      {
-        hotspot.tint = 0xFFFFFF;
-      }
-    });
   },
 
   createHotspot: function(x, y, name) {
