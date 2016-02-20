@@ -18,6 +18,7 @@ Mutate.Preload.prototype = {
     text.anchor.setTo(0.5, 0.5);
 
     // Scripts
+    this.load.script('src/util');
     this.load.script('src/buttonlib');
     this.load.script('src/stats');
     this.load.script('src/actions');

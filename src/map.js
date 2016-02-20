@@ -34,28 +34,20 @@ Mutate.Map.prototype = {
     graphics.beginFill(0xffc400, 0.8);
     graphics.drawRoundedRect(16, 16, 256, 128, 8);
 
-    this.drawText(32, 32, "Name: " + Mutate.Player.name);
-    this.drawText(32, 32, "Name: " + Mutate.Player.name);
-    this.drawText(32, 56, "Life: " + Mutate.Player.life);
-    this.drawText(32, 80, "Mutation: " + Mutate.Player.mutation);
-    this.drawText(32, 104, "IQ: " + Mutate.Player.iq);
+    Mutate.Util.createText(32, 32, "Name: " + Mutate.Player.name);
+    Mutate.Util.createText(32, 32, "Name: " + Mutate.Player.name);
+    Mutate.Util.createText(32, 56, "Life: " + Mutate.Player.life);
+    Mutate.Util.createText(32, 80, "Mutation: " + Mutate.Player.mutation);
+    Mutate.Util.createText(32, 104, "IQ: " + Mutate.Player.iq);
 
-    this.tooltipHeaderText = this.game.add.text(this.game.renderer.centerX, this.game.renderer.centerY, "Testtext");
-    this.tooltipHeaderText.font = 'Raleway';
-    this.tooltipHeaderText.fontSize = 16;
-    this.tooltipHeaderText.fill = '#ffffff';
-    this.tooltipHeaderText.stroke = '#000000';
-    this.tooltipHeaderText.strokeThickness = 2;
-
-    this.hotspots.forEach(function(hotspot) {
-      hotspot.inputEnabled = true;
-      hotspot.input.pixelPerfectOver = true;
-      hotspot.input.pixelPerfectClick = true;
-      hotspot.anchor.setTo(0.5, 0.5);
-      hotspot.events.onInputOver.add(Mutate.ButtonLib.onHotspotOver);
-      hotspot.events.onInputOut.add(Mutate.ButtonLib.onHotspotOut);
-      hotspot.events.onInputDown.add(Mutate.ButtonLib.onHotspotDown);
-    });
+    this.tooltipHeaderText = Mutate.Util.createText(0, 0, "", 32);
+    this.tooltipHeaderText.setTextBounds(16, 16, 1266, 48);
+    this.tooltipHeaderText.boundsAlignH = "center";
+    this.tooltipHeaderText.boundsAlignV = "middle";
+    this.tooltipDescText = Mutate.Util.createText(0, 0, "");
+    this.tooltipDescText.setTextBounds(16, 48, 1266, 72);
+    this.tooltipDescText.boundsAlignH = "center";
+    this.tooltipDescText.boundsAlignV = "middle";
 
     this.activeActions = this.game.add.group();
   },
@@ -92,18 +84,14 @@ Mutate.Map.prototype = {
     var tmp = this.game.add.sprite(x, y, name);
     tmp.actions = actions;
     tmp.events.onInputDown.add(this.hotspotClick, this);
+    tmp.inputEnabled = true;
+    tmp.input.pixelPerfectOver = true;
+    tmp.input.pixelPerfectClick = true;
+    tmp.anchor.setTo(0.5, 0.5);
+    tmp.events.onInputOver.add(Mutate.ButtonLib.onHotspotOver);
+    tmp.events.onInputOut.add(Mutate.ButtonLib.onHotspotOut);
+    tmp.events.onInputDown.add(Mutate.ButtonLib.onHotspotDown);
     this.hotspots.push(tmp);
-  },
-
-  drawText: function(x, y, text) {
-    var text = this.game.add.text(x, y, text);
-    text.font = 'Arial Black';
-    text.fontSize = 16;
-    text.fontWeight = 'bold';
-    text.fill = '#000000';
-    text.stroke = '#ffffff';
-    text.strokeThickness = 2;
-    return text;
   },
 
   hotspotClick: function(spot) {
@@ -116,8 +104,23 @@ Mutate.Map.prototype = {
     {
       var btn = Mutate.ButtonLib.createActionButton(spot.actions[i].img, i + 1, spot.actions.length, this.actionClick, this);
       btn.action = spot.actions[i];
+      btn.events.onInputOver.add(this.updateTooltip, this);
+      btn.events.onInputOut.add(this.clearTooltip, this);
       this.activeActions.add(btn);
     }
+  },
+
+  updateTooltip: function(btn) {
+    this.tooltipHeaderText.setText(btn.action.name);
+    this.tooltipDescText.setText(btn.action.desc);
+
+    this.tooltipHeaderText.update();
+    this.tooltipDescText.update();
+  },
+
+  clearTooltip: function(btn) {
+    this.tooltipHeaderText.text = "";
+    this.tooltipDescText.text = "";
   },
 
   actionClick: function(btn) {
