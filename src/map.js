@@ -40,6 +40,13 @@ Mutate.Map.prototype = {
     this.drawText(32, 80, "Mutation: " + Mutate.Player.mutation);
     this.drawText(32, 104, "IQ: " + Mutate.Player.iq);
 
+    this.tooltipHeaderText = this.game.add.text(this.game.renderer.centerX, this.game.renderer.centerY, "Testtext");
+    this.tooltipHeaderText.font = 'Raleway';
+    this.tooltipHeaderText.fontSize = 16;
+    this.tooltipHeaderText.fill = '#ffffff';
+    this.tooltipHeaderText.stroke = '#000000';
+    this.tooltipHeaderText.strokeThickness = 2;
+
     this.hotspots.forEach(function(hotspot) {
       hotspot.inputEnabled = true;
       hotspot.input.pixelPerfectOver = true;

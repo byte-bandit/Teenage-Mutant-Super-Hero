@@ -26,6 +26,8 @@ Mutate.Preload.prototype = {
     this.load.script('src/mainMenu');
     this.load.script('src/map');
 
+    this.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+
     // Load game assets
     this.load.image('mainMenuBackground', 'media/titlescreen/background.png');
     this.load.image('mute', 'media/titlescreen/mute.png');
