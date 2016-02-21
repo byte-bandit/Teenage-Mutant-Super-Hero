@@ -143,17 +143,17 @@ Mutate.Map.prototype = {
 
         var count = 0;
         mods.forEach(function(mod) {
-            Mutate.game.time.events.add(250 * count, function(mod) {
-                var str = mod.factor + " " + mod.stat;
+            Mutate.game.time.events.add(450 * count, function(mod) {
+                var str = mod.factor + " " + (mod.stat == 'mutation' ? '%' : mod.stat);
                 var color = mod.factor > 0 ? '#44ff00' : '#ff3c00';
                 var targetPositionX = Mutate.game.rnd.between(500, Mutate.game.renderer.width - 500);
                 var targetPositionY = Mutate.game.rnd.between(300, Mutate.game.renderer.height - 300);
                 var spawnX = Mutate.game.rnd.between(0,1) == 0 ? -50 : Mutate.game.renderer.width + 50;
                 var spawnY = Mutate.game.rnd.between(0,1) == 0 ? -50 : Mutate.game.renderer.height + 50;
 
-                var text = Mutate.Util.createText(spawnX, spawnY, str, 48, 8, color, '#000000', 'Sigmar One');
+                var text = Mutate.Util.createText(spawnX, spawnY, str, 72, 8, color, '#000000', 'Sigmar One');
                 Mutate.game.add.tween(text.position).to({x: targetPositionX, y: targetPositionY}, 50, Phaser.Easing.Linear.None, true)
-                    .chain(Mutate.game.add.tween(text).to({alpha: 0}, 1500, Phaser.Easing.Linear.None, true));
+                    .chain(Mutate.game.add.tween(text).to({alpha: 0}, 2500, Phaser.Easing.Linear.None, true));
                 Mutate.game.add.tween(text).to({angle: Mutate.game.rnd.between(-15, 15)}, 50, Phaser.Easing.Linear.None, true);
                 
             }, this, mod);

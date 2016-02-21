@@ -12,11 +12,14 @@ Mutate.Hud = function() {
     this.iqText = Mutate.Util.createText(32, 84, "");
     this.ageText = Mutate.Util.createText(32, 112, "");
 
-    this.mutationText = Mutate.Util.createText(1280, 128, "", 24, 8, "#ff5555", "#000000", "Sigmar One");
-    this.mutationText.anchor.setTo(1.0, 0.0);
+    this.mutationText = Mutate.Util.createText(1130, 100, "", 24, 8, "#ff5555", "#000000", "Sigmar One");
+    this.mutationText.anchor.setTo(0.5);
     this.mutationText.angle = 30;
     this.mutationText.align = 'center';
     this.mutationText.lineSpacing = -10;
+
+    Mutate.game.add.tween(this.mutationText.scale).to({x: 1.05, y:1.05}, 750, Phaser.Easing.Linear.None, true, 0, -1, true);
+
     this.updateInfo();
 };
 
