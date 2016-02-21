@@ -27,9 +27,9 @@ Mutate.Player = function() {
 };
 
 Mutate.Player.prototype.clampStats = function() {
-    Mutate.game.math.clamp(this.life, 0, 100);
-    Mutate.game.math.clamp(this.mutation, 0, 100);
-    Mutate.game.math.clamp(this.iq, 0, 200);
+    this.life = Mutate.game.math.clamp(this.life, 0, 100);
+    this.mutation = Mutate.game.math.clamp(this.mutation, 0, 100);
+    this.iq = Mutate.game.math.clamp(this.iq, 0, 200);
 
     this.mutation = Mutate.game.math.roundTo(this.mutation, -2);
 };

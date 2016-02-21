@@ -30,10 +30,6 @@ Mutate.Map.prototype = {
         this.createHotspot(30, 478, 'home', [Mutate.Actions.Sunbath, Mutate.Actions.Microwave]);
         this.createHotspot(703, 662, 'hole', [Mutate.Actions.Find]);
 
-        var graphics = this.game.add.graphics(0, 0);
-        graphics.beginFill(0xffc400, 0.8);
-        graphics.drawRoundedRect(16, 16, 256, 128, 8);
-
         this.hud = new Mutate.Hud();
 
         this.tooltipHeaderText = Mutate.Util.createText(0, 0, "", 32);
@@ -77,7 +73,9 @@ Mutate.Map.prototype = {
         }
     },
 
-    update: function() {},
+    update: function() {
+        this.hud.update();
+    },
 
     createHotspot: function(x, y, name, actions) {
         var tmp = this.game.add.sprite(x, y, name);
@@ -138,7 +136,7 @@ Mutate.Map.prototype = {
 
         Mutate.GameManager.getTheCarHarry();
 
-        this.hud.update();
+        this.hud.updateInfo();
     },
 
     spawnStatTexts: function(mods) {
