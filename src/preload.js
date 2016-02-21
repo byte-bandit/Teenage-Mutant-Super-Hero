@@ -26,6 +26,7 @@ Mutate.Preload.prototype = {
     this.load.script('src/player');
     this.load.script('src/sun');
     this.load.script('src/mainMenu');
+    this.load.script('src/gameOver');
     this.load.script('src/map');
     this.load.script('src/gameManager');
 
@@ -68,6 +69,10 @@ Mutate.Preload.prototype = {
     this.load.image('tracksCastor', 'media/HUD/buttons/tracks1.png');
     this.load.image('zooBite', 'media/HUD/buttons/zoo1.png');
 
+    //Game over
+    this.load.image('gameOverDeadBoy', 'media/gameover/deadBoy.png');
+    this.load.image('btnTryAgain', 'media/gameover/tryagainButton.png');
+
     // Hud
     this.load.image('btnMute', 'media/titlescreen/mute.png');
     this.load.image('btnUnmute', 'media/titlescreen/sound.png');
@@ -79,6 +84,7 @@ Mutate.Preload.prototype = {
   create: function() {
     this.game.state.add('Map', Mutate.Map);
     this.game.state.add('MainMenu', Mutate.MainMenu);
+    this.game.state.add('GameOver', Mutate.GameOver);
 
     this.state.start('MainMenu');
   }

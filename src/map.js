@@ -48,8 +48,8 @@ Mutate.Map.prototype = {
         });
 
          Mutate.GameManager.onLoose.add(function(msg) {
-            alert(msg);
-        });
+            Mutate.game.state.start("GameOver", true, false, this.tooltipHeaderText.text, this.tooltipDescText.text);
+        }, this);
     },
 
     spawnClouds: function() {
