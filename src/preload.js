@@ -20,13 +20,15 @@ Mutate.Preload.prototype = {
     // Scripts
     this.load.script('src/util');
     this.load.script('src/buttonlib');
+    this.load.script('src/hud');
     this.load.script('src/stats');
     this.load.script('src/actions');
     this.load.script('src/player');
     this.load.script('src/sun');
     this.load.script('src/mainMenu');
     this.load.script('src/map');
-
+    this.load.script('src/gameManager');
+    
     this.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 
     // Load game assets

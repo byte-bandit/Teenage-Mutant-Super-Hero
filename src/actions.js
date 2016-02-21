@@ -4,8 +4,26 @@ var Mutate = window.Mutate || {};
 Mutate.Actions = {
 	Roll: function(stat, min, max) {
 		var factor = stat == Mutate.Stats.MUTATION ? Mutate.game.rnd.realInRange(min, max) : Mutate.game.rnd.between(min, max);
-		Mutate.Player[stat] += factor;
+		Mutate.GameManager.Player[stat] += factor;
 		return {factor: factor, stat: stat};
+	},
+
+	GetResult: function(action) {
+		var roll = Mutate.game.rnd.between(1, 100);
+        
+        var cumulativeProbability = 0;
+        var retVal;
+
+        action.results.some(function(result, index, _ary) {
+            cumulativeProbability += result.prop;
+            if (roll <= cumulativeProbability)
+            {
+                retVal = result;
+                return true;
+            }
+        });
+
+        return retVal;
 	},
 
 	JetEngine: {
@@ -172,9 +190,9 @@ Mutate.Actions = {
 					var life = Mutate.Actions.Roll(Mutate.Stats.LIFE, 5, 20);
 
 					return [
-					x, 
+					life, 
 					Mutate.Actions.Roll(Mutate.Stats.IQ, 0, 1), 
-					Mutate.Actions.Roll(Mutate.Stats.MUTATION, (x.factor / 10) * -1, (x.factor / 10) * -1)];
+					Mutate.Actions.Roll(Mutate.Stats.MUTATION, (life.factor / 10) * -1, (life.factor / 10) * -1)];
 				}
 			},
 			{
@@ -232,7 +250,7 @@ Mutate.Actions = {
 				desc: "You don't know what that means. But you DO know how to unclog the toilet now.",
 				mod: function() {
 					return [
-					Mutate.Actions.Roll(Mutate.Stats.IQ, 3, -7)];
+					Mutate.Actions.Roll(Mutate.Stats.IQ, 3, 7)];
 				}
 			},
 			{

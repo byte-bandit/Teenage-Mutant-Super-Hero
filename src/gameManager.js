@@ -2,17 +2,29 @@
 var Mutate = window.Mutate || {};
 
 Mutate.GameManager = {
-	currentRound: 1,
-	maxRounds: 32, 
+	Player: new Mutate.Player(),
+	currentRound: 0,
+	maxRounds: 31, 
 	onLoose: new Phaser.Signal(),
 	onWin: new Phaser.Signal(),
 
 	getTheCarHarry: function() {
 		this.currentRound ++;
+		Mutate.GameManager.Player.clampStats();
+
+		if (Mutate.GameManager.Player.life <= 0)
+		{
+			this.onLoose.dispatch("You ded, lol.");
+		}
+
+		if (Mutate.GameManager.Player.tryMutate())
+		{
+			this.onWin.dispatch("You finally mutate! Awesome!");
+		}
 
 		if (this.currentRound > this.maxRounds)
 		{
-			this.onLoose.dispatch(this);
+			this.onLoose.dispatch("You failed...");
 		}
 	}
 }
