@@ -5,7 +5,7 @@ Mutate.Actions = {
 	Roll: function(stat, min, max) {
 		var factor = stat == Mutate.Stats.MUTATION ? Mutate.game.rnd.realInRange(min, max) : Mutate.game.rnd.between(min, max);
 		Mutate.GameManager.Player[stat] += factor;
-		return {factor: factor, stat: stat};
+		return {factor: Mutate.game.math.roundTo(factor, -2), stat: stat};
 	},
 
 	GetResult: function(action) {

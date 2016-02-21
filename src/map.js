@@ -140,16 +140,24 @@ Mutate.Map.prototype = {
     },
 
     spawnStatTexts: function(mods) {
-        var offsetY = -24;
 
+        var count = 0;
         mods.forEach(function(mod) {
-            var str = mod.factor + " " + mod.stat;
-            var color = mod.factor > 0 ? '#44ff00' : '#ff3c00';
-            var text = Mutate.Util.createText(Mutate.game.input.x + 24, Mutate.game.input.y + offsetY, str, 16, 2, color);
-            Mutate.game.add.tween(text).to({alpha: 0}, 1500, Phaser.Easing.Linear.None, true);
-            Mutate.game.add.tween(text.position).to({y: text.position.y - 100}, 1500, Phaser.Easing.Circular.Out, true);
-            offsetY += 24;
-            // Trying to detroy the text after the tween has ended seems to break the funciontality???
+            Mutate.game.time.events.add(250 * count, function(mod) {
+                var str = mod.factor + " " + mod.stat;
+                var color = mod.factor > 0 ? '#44ff00' : '#ff3c00';
+                var targetPositionX = Mutate.game.rnd.between(500, Mutate.game.renderer.width - 500);
+                var targetPositionY = Mutate.game.rnd.between(300, Mutate.game.renderer.height - 300);
+                var spawnX = Mutate.game.rnd.between(0,1) == 0 ? -50 : Mutate.game.renderer.width + 50;
+                var spawnY = Mutate.game.rnd.between(0,1) == 0 ? -50 : Mutate.game.renderer.height + 50;
+
+                var text = Mutate.Util.createText(spawnX, spawnY, str, 48, 8, color, '#000000', 'Sigmar One');
+                Mutate.game.add.tween(text.position).to({x: targetPositionX, y: targetPositionY}, 50, Phaser.Easing.Linear.None, true)
+                    .chain(Mutate.game.add.tween(text).to({alpha: 0}, 1500, Phaser.Easing.Linear.None, true));
+                Mutate.game.add.tween(text).to({angle: Mutate.game.rnd.between(-15, 15)}, 50, Phaser.Easing.Linear.None, true);
+                
+            }, this, mod);
+            count ++;
         });
     }
 }
