@@ -7,15 +7,6 @@ var WebFontConfig = {};
   Mutate.Engine = function(width, height) {
     this.game = new Phaser.Game(width, height, Phaser.AUTO, "", {preload: this.onPreload, create: this.onCreate, update: this.onUpdate, render: this.onRender}, false, true);
 
-    WebFontConfig = {
-
-    active: function() { Mutate.game.time.events.add(Phaser.Timer.SECOND, null, this); },
-
-    google: {
-      families: ['Raleway']
-    }
-};
-
     Mutate.game = this.game;
   };
 

@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Teenage Mutant Super Hero</title>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
     <script type="text/javascript" src="lib/phaser.min.js"></script>
     <script type="text/javascript" src="src/main.js"></script>
     <script type="text/javascript" src="src/preload.js"></script>
     <script type="text/javascript">
-      window.onload = function() {
-        var engine = new Mutate.Engine(1280, 720);
-      };
+    WebFont.load({
+        google: {
+            families: ['Raleway']
+        },
+        active: function() {
+            var engine = new Mutate.Engine(1280, 720);
+        }
+    });
     </script>
 </head>
+
 <body>
 </body>
+
 </html>
