@@ -3,19 +3,19 @@ var Mutate = window.Mutate || {};
 
 Mutate.ButtonLib = {
 	onButtonOver: function(btn) {
-		btn.angle = 3;
+		Mutate.game.add.tween(btn.scale).to({x: 1.05, y: 1.05}, 100, Phaser.Easing.Bounce.Out, true);
 	},
 
 	onButtonOut: function(btn) {
-		btn.angle = 0;
+		Mutate.game.add.tween(btn.scale).to({x: 1, y: 1}, 100, Phaser.Easing.Bounce.Out, true);
 	},
 
 	onButtonDown: function(btn) {
-		btn.scale.setTo(0.95, 0.95);
+		Mutate.game.add.tween(btn.scale).to({x: .95, y: .95}, 100, Phaser.Easing.Bounce.Out, true);
 	},
 
 	onButtonUp: function(btn) {
-		btn.scale.setTo(1.0, 1.0);
+		Mutate.game.add.tween(btn.scale).to({x: 1, y: 1}, 100, Phaser.Easing.Bounce.Out, true);
 	},
 
 	onHotspotOver: function(btn) {
@@ -28,6 +28,17 @@ Mutate.ButtonLib = {
 
 	onHotspotDown: function(btn) {
 		Mutate.game.add.tween(btn.scale).to({x: 1.0, y: 1.0}, 25, Phaser.Easing.Bounce.Out, true).yoyo(true);
+	},
+
+	createButton: function(x, y, image, callback, callbackContext)
+	{
+		var btn  = Mutate.game.add.button(x, y, image, callback, callbackContext);
+		btn.anchor.setTo(0.5, 0.5)
+		btn.onInputOver.add(Mutate.ButtonLib.onButtonOver);
+	    btn.onInputOut.add(Mutate.ButtonLib.onButtonOut);
+	    btn.onInputUp.add(Mutate.ButtonLib.onButtonUp);
+	    btn.onInputDown.add(Mutate.ButtonLib.onButtonDown);
+		return btn;
 	},
 
 	createActionButton: function(image, action, currentAction, totalActions, callback, callbackContext) {

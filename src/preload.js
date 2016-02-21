@@ -67,6 +67,13 @@ Mutate.Preload.prototype = {
     this.load.image('sewerFind', 'media/HUD/buttons/sewer1.png');
     this.load.image('tracksCastor', 'media/HUD/buttons/tracks1.png');
     this.load.image('zooBite', 'media/HUD/buttons/zoo1.png');
+
+    // Hud
+    this.load.image('btnMute', 'media/titlescreen/mute.png');
+    this.load.image('btnUnmute', 'media/titlescreen/sound.png');
+
+    // Audio
+    this.load.audio('sfxStamp', 'media/sounds/stamp.mp3');
   },
 
   create: function() {
