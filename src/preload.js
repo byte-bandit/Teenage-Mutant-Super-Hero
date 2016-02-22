@@ -10,15 +10,12 @@ Mutate.Preload.prototype = {
 
   preload: function() {
     // Insert Shiny Loading here
-    var text = this.game.add.text(this.game.world.centerX, this.game.world.centerY, "Loading...");
-    text.font = 'Arial Black';
-    text.fontSize = 72;
-    text.fontWeight = 'bold';
-    text.fill = '#ffffff';
-    text.anchor.setTo(0.5, 0.5);
+    Mutate.Util.createText(this.game.world.centerX, this.game.height * 0.25, "Loading...", 72, 0).anchor.setTo(0.5);
+    var loadingBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'loadingbar');
+    loadingBar.anchor.setTo(0.5,1);
+    this.load.setPreloadSprite(loadingBar,0);
 
     // Scripts
-    this.load.script('src/util');
     this.load.script('src/buttonlib');
     this.load.script('src/hud');
     this.load.script('src/stats');

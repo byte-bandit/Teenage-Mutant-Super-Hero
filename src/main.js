@@ -22,8 +22,8 @@ var WebFontConfig = {};
       this.game.scale.pageAlignVertically = true;
       this.game.scale.refresh();
 
-      this.game.state.add('Preload', Mutate.Preload);
-      this.game.state.start('Preload');
+      this.game.state.add('Boot', Mutate.Boot);
+      this.game.state.start('Boot');
     },
 
     onUpdate: function() {
