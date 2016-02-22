@@ -23,6 +23,7 @@ Mutate.Preload.prototype = {
     this.load.script('src/gameManager');
     this.load.script('src/hud');
     this.load.script('src/sun');
+    this.load.script('src/states/intro');
     this.load.script('src/states/mainMenu');
     this.load.script('src/states/gameOver');
     this.load.script('src/states/map');
@@ -66,7 +67,23 @@ Mutate.Preload.prototype = {
     this.load.image('tracksCastor', 'media/HUD/buttons/tracks1.png');
     this.load.image('zooBite', 'media/HUD/buttons/zoo1.png');
 
-    //Game over
+    // Intro
+    this.load.image('intro1_1', 'media/intro/intro1_1.png');
+    this.load.image('intro1_2', 'media/intro/intro1_2.png');
+    this.load.image('intro1_bg', 'media/intro/intro1_bg.png');
+    this.load.image('intro2_1', 'media/intro/intro2_1.png');
+    this.load.image('intro2_2', 'media/intro/intro2_2.png');
+    this.load.image('intro2_bg', 'media/intro/intro2_bg.png');
+    this.load.image('intro3_1', 'media/intro/intro3_1.png');
+    this.load.image('intro3_2', 'media/intro/intro3_2.png');
+    this.load.image('intro3_bg', 'media/intro/intro3_bg.png');
+    this.load.image('intro4_1', 'media/intro/intro4_1.png');
+    this.load.image('intro4_2', 'media/intro/intro4_2.png');
+    this.load.image('intro4_bg', 'media/intro/intro4_bg.png');
+    this.load.image('intro5_1', 'media/intro/intro5_1.png');
+    this.load.image('intro5_2', 'media/intro/intro5_2.png');
+
+    // Game over
     this.load.image('gameOverDeadBoy', 'media/gameover/deadBoy.png');
     this.load.image('gameOverOld', 'media/gameover/old.png');
     this.load.image('win01', 'media/gameover/mutation1.png');
@@ -84,10 +101,11 @@ Mutate.Preload.prototype = {
   },
 
   create: function() {
-    this.game.state.add('Map', Mutate.Map);
+    this.game.state.add('Intro', Mutate.Intro);
     this.game.state.add('MainMenu', Mutate.MainMenu);
     this.game.state.add('GameOver', Mutate.GameOver);
+    this.game.state.add('Map', Mutate.Map);
 
-    this.game.state.start('MainMenu');
+    this.game.state.start('Intro');
   }
 }
