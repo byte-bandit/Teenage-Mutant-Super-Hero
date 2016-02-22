@@ -14,17 +14,20 @@ Mutate.GameManager = {
 
 		if (Mutate.GameManager.Player.life <= 0)
 		{
-			this.onLoose.dispatch("You ded, lol.");
+			this.onLoose.dispatch("dead");
+			return;
 		}
 
 		if (Mutate.GameManager.Player.tryMutate())
 		{
-			this.onWin.dispatch("You finally mutate! Awesome!");
+			this.onWin.dispatch();
+			return;
 		}
 
 		if (this.currentRound > this.maxRounds)
 		{
-			this.onLoose.dispatch("You failed...");
+			this.onLoose.dispatch("old");
+			return;
 		}
 	},
 
