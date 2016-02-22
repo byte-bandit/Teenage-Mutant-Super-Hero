@@ -16,16 +16,16 @@ Mutate.Preload.prototype = {
     this.load.setPreloadSprite(loadingBar,0);
 
     // Scripts
-    this.load.script('src/buttonlib');
-    this.load.script('src/hud');
-    this.load.script('src/stats');
-    this.load.script('src/actions');
+    this.load.script('src/core/buttonlib');
+    this.load.script('src/defines/stats');
+    this.load.script('src/defines/actions');
     this.load.script('src/player');
-    this.load.script('src/sun');
-    this.load.script('src/mainMenu');
-    this.load.script('src/gameOver');
-    this.load.script('src/map');
     this.load.script('src/gameManager');
+    this.load.script('src/hud');
+    this.load.script('src/sun');
+    this.load.script('src/states/mainMenu');
+    this.load.script('src/states/gameOver');
+    this.load.script('src/states/map');
 
     // Load game assets
     this.load.image('mainMenuBackground', 'media/titlescreen/background.png');
