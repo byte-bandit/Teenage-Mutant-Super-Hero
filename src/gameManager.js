@@ -26,5 +26,11 @@ Mutate.GameManager = {
 		{
 			this.onLoose.dispatch("You failed...");
 		}
+	},
+
+	restart: function() {
+		this.Player = new Mutate.Player();
+		this.currentRound = 0;
+		Mutate.game.state.start('Map');
 	}
 }

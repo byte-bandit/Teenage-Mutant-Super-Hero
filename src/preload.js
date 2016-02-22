@@ -86,6 +86,6 @@ Mutate.Preload.prototype = {
     this.game.state.add('MainMenu', Mutate.MainMenu);
     this.game.state.add('GameOver', Mutate.GameOver);
 
-    this.state.start('MainMenu');
+    this.game.state.start('MainMenu');
   }
 }

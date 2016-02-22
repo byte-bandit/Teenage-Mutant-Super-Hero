@@ -15,12 +15,17 @@ Mutate.GameOver.prototype = {
 
   create: function() {
     this.game.add.sprite(Mutate.game.world.centerX, Mutate.game.world.centerY, 'gameOverDeadBoy').anchor.setTo(0.5);
-    var x = Mutate.game.add.text(32, 32, this.header);
-    console.log(x);
+    Mutate.Util.createText(Mutate.game.world.centerX, 32, this.header, 48).anchor.setTo(0.5, 0.0);
+    Mutate.Util.createText(Mutate.game.world.centerX, 128, this.desc, 32).anchor.setTo(0.5, 0.0);
+
     Mutate.ButtonLib.createButton(this.game.world.width * 0.85, this.game.world.height * 0.9, 'btnTryAgain', this.restartGame, this);
   },
 
+  update: function() {
+
+  },
+
   restartGame: function() {
-    Mutate.game.state.start('Map');
+    Mutate.GameManager.restart();
   }
 }

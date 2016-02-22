@@ -7,7 +7,6 @@ Mutate.Hud = function() {
     this.graphics.drawRoundedRect(16, 16, 256, 128, 8);
 
     this.nameText = Mutate.Util.createText(32, 32, "");
-    this.nameText = Mutate.Util.createText(32, 32, "");
     this.createHealthBar(32, 60, 200, 10);
     this.iqText = Mutate.Util.createText(32, 84, "");
     this.ageText = Mutate.Util.createText(32, 112, "");
@@ -77,8 +76,10 @@ Mutate.Hud.prototype.createStatModifiers = function(mods) {
             var spawnY = Mutate.game.rnd.between(0,1) == 0 ? -50 : Mutate.game.renderer.height + 50;
 
             var text = Mutate.Util.createText(spawnX, spawnY, str, 72, 8, color, '#000000', 'Sigmar One');
+            var t = Mutate.game.add.tween(text).to({alpha: 0}, 2500, Phaser.Easing.Linear.None, true);
+            t.onComplete.add(function(t) {t.destroy();});
             Mutate.game.add.tween(text.position).to({x: targetPositionX, y: targetPositionY}, 50, Phaser.Easing.Linear.None, true)
-                .chain(Mutate.game.add.tween(text).to({alpha: 0}, 2500, Phaser.Easing.Linear.None, true));
+                .chain(t);
             Mutate.game.add.tween(text).to({angle: Mutate.game.rnd.between(-15, 15)}, 50, Phaser.Easing.Linear.None, true);
 
             this.stampSound.play();
