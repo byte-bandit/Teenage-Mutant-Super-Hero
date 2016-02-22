@@ -114,7 +114,7 @@ Mutate.Intro.prototype.cleanUp = function() {
     {
         this.animationTimer.timer.remove(this.animationTimer);
 
-        this.game.state.start('MainMenu');
+        this.game.state.start('Map');
     }
 }
 

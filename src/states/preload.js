@@ -29,10 +29,12 @@ Mutate.Preload.prototype = {
     this.load.script('src/states/map');
 
     // Load game assets
-    this.load.image('mainMenuBackground', 'media/titlescreen/background.png');
-    this.load.image('mute', 'media/titlescreen/mute.png');
-    this.load.image('sound', 'media/titlescreen/sound.png');
+    this.load.image('mainMenuLogo', 'media/titlescreen/logo.png');
+    this.load.image('btnMute', 'media/titlescreen/mute.png');
+    this.load.image('btnUnmute', 'media/titlescreen/sound.png');
     this.load.image('startbutton', 'media/titlescreen/startbutton.png');
+    this.load.image('maaten', 'media/titlescreen/maaten.png');
+    this.load.image('knasl', 'media/titlescreen/knasl.png');
 
     this.load.image('msLayer1', 'media/backgrounds/msLayer1.png');
     this.load.image('msLayer2', 'media/backgrounds/msLayer2.png');
@@ -92,10 +94,6 @@ Mutate.Preload.prototype = {
     this.load.image('win04', 'media/gameover/mutation4.png');
     this.load.image('btnTryAgain', 'media/gameover/tryagainButton.png');
 
-    // Hud
-    this.load.image('btnMute', 'media/titlescreen/mute.png');
-    this.load.image('btnUnmute', 'media/titlescreen/sound.png');
-
     // Audio
     this.load.audio('sfxStamp', 'media/sounds/stamp.mp3');
   },
@@ -106,6 +104,6 @@ Mutate.Preload.prototype = {
     this.game.state.add('GameOver', Mutate.GameOver);
     this.game.state.add('Map', Mutate.Map);
 
-    this.game.state.start('Intro');
+    this.game.state.start('MainMenu');
   }
 }
