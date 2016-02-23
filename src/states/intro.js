@@ -81,7 +81,7 @@ Mutate.Intro.prototype.create = function() {
     this.frames = this.game.add.group();
     this.animationTimer = Mutate.game.time.events.loop(500, this.updateAnimation, this);
 
-    this.skipButton = Mutate.Util.createText(Mutate.game.width - 100, Mutate.game.height - 50, "Skip", 48);
+    this.skipButton = Mutate.Util.createText(Mutate.game.width - 100, Mutate.game.height - 50, "Skip", 48, 8, "#ffffff", "#000000", "Sigmar One");
     this.skipButton.anchor.setTo(0.5);
     this.skipButton.inputEnabled = true;
     this.skipButton.events.onInputOver.add(Mutate.ButtonLib.onButtonOver);
