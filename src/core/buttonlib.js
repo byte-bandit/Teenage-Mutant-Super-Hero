@@ -12,7 +12,7 @@ Mutate.ButtonLib = {
 
 	onButtonDown: function(btn) {
 		Mutate.game.add.tween(btn.scale).to({x: .95, y: .95}, 100, Phaser.Easing.Bounce.Out, true);
-		Mutate.ButtonLib.playRandomClickSound();
+		//Mutate.ButtonLib.playRandomClickSound();
 	},
 
 	onButtonUp: function(btn) {
@@ -29,7 +29,7 @@ Mutate.ButtonLib = {
 
 	onHotspotDown: function(btn) {
 		Mutate.game.add.tween(btn.scale).to({x: 1.0, y: 1.0}, 25, Phaser.Easing.Bounce.Out, true).yoyo(true);
-		Mutate.ButtonLib.playRandomClickSound();
+		//Mutate.ButtonLib.playRandomClickSound();
 	},
 
 	createButton: function(x, y, image, callback, callbackContext)
@@ -58,8 +58,12 @@ Mutate.ButtonLib = {
 
 		if (btn.action.iq > Mutate.GameManager.Player.iq)
 		{
-			btn.tint = 0xff0000;
+			btn.tint = 0x990000;
 			btn.buttonMode = false;
+			var t = Mutate.Util.createText(0, 0, "IQ\n" + btn.action.iq, 32, 4, '#ffffff', '#000000', 'Sigmar One');
+			t.anchor.setTo(0.5);
+			t.align = 'center';
+			btn.addChild(t);
 		}
 		else
 		{
