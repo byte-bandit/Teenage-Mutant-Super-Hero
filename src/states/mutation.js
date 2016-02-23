@@ -13,6 +13,12 @@ Mutate.Mutation.prototype.create = function() {
     this.game.stage.backgroundColor = '#000000';
     this.topBG = this.game.add.sprite(0, 0, 'mutationBGTop');
 
+    this.emitter = this.game.add.emitter(this.game.world.centerX, this.game.world.centerY, 250);
+    this.emitter.makeParticles('particle');
+    this.emitter.minParticleSpeed.setTo(-400, -400);
+    this.emitter.maxParticleSpeed.setTo(400, 400);
+    this.emitter.gravity = 0;
+
     this.playerOld = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'winPremutation');
     this.playerOld.anchor.setTo(0.5);
     this.playerOld.filters = [this.filterPixelate, this.filterColorMatrix];
@@ -90,6 +96,8 @@ Mutate.Mutation.prototype.swapFinished = function() {
     bmd.ctx.fill();
 
     var t = this.game.add.tween(this.topBG).to({alpha: 1}, 1000, Phaser.Easing.Linear.None);
+    this.emitter.start(false, 4000, 15);
+    
     t.onComplete.add(function() {
         var heroname = Mutate.Player.getHeroName();
         this.textPointer = 0;

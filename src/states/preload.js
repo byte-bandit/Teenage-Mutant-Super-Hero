@@ -40,6 +40,7 @@ Mutate.Preload.prototype = {
     this.load.image('startbutton', 'media/titlescreen/startbutton.png');
     this.load.image('maaten', 'media/titlescreen/maaten.png');
     this.load.image('knasl', 'media/titlescreen/knasl.png');
+    this.load.image('particle', 'media/HUD/particle.png');
 
     this.load.image('msLayer1', 'media/backgrounds/msLayer1.png');
     this.load.image('msLayer2', 'media/backgrounds/msLayer2.png');
