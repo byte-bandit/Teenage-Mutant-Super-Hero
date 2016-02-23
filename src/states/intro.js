@@ -81,6 +81,15 @@ Mutate.Intro.prototype.create = function() {
     this.frames = this.game.add.group();
     this.animationTimer = Mutate.game.time.events.loop(500, this.updateAnimation, this);
 
+    this.skipButton = Mutate.Util.createText(Mutate.game.width - 100, Mutate.game.height - 50, "Skip", 48);
+    this.skipButton.anchor.setTo(0.5);
+    this.skipButton.inputEnabled = true;
+    this.skipButton.events.onInputOver.add(Mutate.ButtonLib.onButtonOver);
+    this.skipButton.events.onInputOut.add(Mutate.ButtonLib.onButtonOut);
+    this.skipButton.events.onInputUp.add(Mutate.ButtonLib.onButtonUp);
+    this.skipButton.events.onInputDown.add(Mutate.ButtonLib.onButtonDown);
+    this.skipButton.events.onInputDown.add(this.skip, this);
+
     this.nextScene();
 }
 
@@ -94,11 +103,11 @@ Mutate.Intro.prototype.nextScene = function() {
 
     Mutate.game.world.bringToTop(this.frames);
     Mutate.game.time.events.add(3000, this.cleanUp, this);
+
+    Mutate.game.world.bringToTop(this.skipButton);
 }
 
 Mutate.Intro.prototype.cleanUp = function() {
-    this.animationTimer.timer.pause();
-
     if (typeof this.background !== 'undefined') {
         this.background.destroy();
     }
@@ -108,16 +117,19 @@ Mutate.Intro.prototype.cleanUp = function() {
     if (this.currentScene.id < this.scenes.length)
     {
         this.nextScene();
-        this.animationTimer.timer.resume();
     }
     else
     {
-        this.animationTimer.timer.remove(this.animationTimer);
-
+        this.game.time.events.remove(this.animationTimer);
         this.game.state.start('Map');
     }
 }
 
 Mutate.Intro.prototype.updateAnimation = function() {
     this.frames.forEach(function(frame) {frame.visible = !frame.visible;});
+}
+
+Mutate.Intro.prototype.skip = function() {
+    this.currentScene.id = this.scenes.length;
+    this.cleanUp();
 }
