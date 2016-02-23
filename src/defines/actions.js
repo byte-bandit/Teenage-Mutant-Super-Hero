@@ -92,7 +92,7 @@ Mutate.Actions = {
 		name: "Enjoy yourself",
 		desc: "Who needs sunscreen anyway?",
 		img: "homeSunbath",
-		killimg: "gameOverSunBath",
+		killimg: "gameOverSunBathing",
 		iq: 0,
 		results:
 		[
