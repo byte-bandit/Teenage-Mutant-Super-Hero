@@ -26,7 +26,12 @@ Mutate.Preload.prototype = {
     this.load.script('src/states/intro');
     this.load.script('src/states/mainMenu');
     this.load.script('src/states/gameOver');
+    this.load.script('src/states/mutation');
     this.load.script('src/states/map');
+
+    // Filters
+    this.load.script('src/filters/Pixelate');
+    this.load.script('src/filters/ColorMatrixFilter');
 
     // Load game assets
     this.load.image('mainMenuLogo', 'media/titlescreen/logo.png');
@@ -87,6 +92,9 @@ Mutate.Preload.prototype = {
 
     // Game over
     this.load.image('gameOverOld', 'media/gameover/old.png');
+    this.load.image('mutationBGTop', 'media/backgrounds/mutationBGTop.png');
+    this.load.image('mutationBGBot', 'media/backgrounds/mutationBGBot.png');
+    this.load.image('winPremutation', 'media/gameover/premutation.png');
     this.load.image('win01', 'media/gameover/mutation1.png');
     this.load.image('win02', 'media/gameover/mutation2.png');
     this.load.image('win03', 'media/gameover/mutation3.png');
@@ -115,6 +123,7 @@ Mutate.Preload.prototype = {
     this.game.state.add('Intro', Mutate.Intro);
     this.game.state.add('MainMenu', Mutate.MainMenu);
     this.game.state.add('GameOver', Mutate.GameOver);
+    this.game.state.add('Mutation', Mutate.Mutation);
     this.game.state.add('Map', Mutate.Map);
 
     this.game.state.start('MainMenu');

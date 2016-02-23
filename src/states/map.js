@@ -44,7 +44,7 @@ Mutate.Map.prototype = {
         this.activeActions = this.game.add.group();
 
         Mutate.GameManager.onWin.add(function(msg) {
-            Mutate.game.state.start("GameOver", true, false, null, "win");
+            Mutate.game.state.start("Mutation");
         }, this);
 
          Mutate.GameManager.onLoose.add(function(msg) {

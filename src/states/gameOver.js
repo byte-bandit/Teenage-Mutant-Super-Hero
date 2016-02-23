@@ -8,9 +8,11 @@ Mutate.GameOver = function (game) {
 Mutate.GameOver.prototype = {
   constructor: Mutate.GameOver,
 
-  init: function(action, msg) {
+  init: function(action, msg, img, nam) {
     this.action = action;
     this.msg = msg;
+    this.img = img;
+    this.nam = nam;
   },
 
   create: function() {
@@ -18,12 +20,15 @@ Mutate.GameOver.prototype = {
     var header;
     var subHeader;
 
+    this.game.stage.backgroundColor = '#4d4d4d';
+
     switch(this.msg)
     {
       case "win":
-        img = Mutate.game.rnd.pick(['win01', 'win02', 'win03', 'win04']);
+        img = this.img;
         header = "Worth it!";
         subHeader = "Not the hero we deserve, but the hero we need."
+        Mutate.Util.createText(Mutate.game.world.centerX, Mutate.game.height * 0.85, this.nam, 48).anchor.setTo(0.5);
         break;
       case "death":
         img = this.action.killimg;

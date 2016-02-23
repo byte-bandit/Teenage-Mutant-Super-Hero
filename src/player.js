@@ -41,3 +41,46 @@ Mutate.Player.prototype.tryMutate = function() {
 Mutate.Player.prototype.getYears = function() {
     return 12 + Mutate.game.math.floorTo(Mutate.GameManager.currentRound / 4, 0);
 };
+
+Mutate.Player.getHeroName = function() {
+
+    var p1 = Mutate.game.rnd.pick([
+        "",
+        "Bouncing", 
+        "Super", 
+        "Awesome", 
+        "Paste", 
+        "Brother", 
+        "Flying", 
+        "Holy", 
+        "Fruit",
+        "Kid",
+        "The",
+        ""]);
+
+    var p2 = Mutate.game.rnd.pick([
+        "Baron", 
+        "Super", 
+        "Awesome", 
+        "Pot", 
+        "Steel", 
+        "Firefly", 
+        "Cat", 
+        "Doc",
+        "Weasel"]);
+
+    var p3 = Mutate.game.rnd.pick([
+        "",
+        "of Space", 
+        "of Fire", 
+        "of Wisdom", 
+        "Pete", 
+        "Bob", 
+        "Boy", 
+        "Man", 
+        "Girl",
+        "Woman",
+        ""]);
+
+    return p1.concat(" ", p2, " ", p3).replace("  ", " ").trim();
+}
