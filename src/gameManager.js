@@ -14,13 +14,13 @@ Mutate.GameManager = {
 
 		if (Mutate.GameManager.Player.life <= 0)
 		{
-			this.onLoose.dispatch("dead");
+			this.onLoose.dispatch("death");
 			return;
 		}
 
 		if (Mutate.GameManager.Player.tryMutate())
 		{
-			this.onWin.dispatch();
+			this.onWin.dispatch("win");
 			return;
 		}
 

@@ -44,11 +44,11 @@ Mutate.Map.prototype = {
         this.activeActions = this.game.add.group();
 
         Mutate.GameManager.onWin.add(function(msg) {
-            Mutate.game.state.start("GameOver", true, false, this.tooltipHeaderText.text, this.tooltipDescText.text, "win");
+            Mutate.game.state.start("GameOver", true, false, null, "win");
         }, this);
 
-         Mutate.GameManager.onLoose.add(function(isDead) {
-            Mutate.game.state.start("GameOver", true, false, this.tooltipHeaderText.text, this.tooltipDescText.text, isDead);
+         Mutate.GameManager.onLoose.add(function(msg) {
+            Mutate.game.state.start("GameOver", true, false, this.lastAction, msg);
         }, this);
     },
 
@@ -127,8 +127,12 @@ Mutate.Map.prototype = {
 
         this.clearTooltip();
 
+        this.lastAction = btn.action;
+
         var result = Mutate.Actions.GetResult(btn.action);
         var mods = result.mod();
+
+        this.lastAction.result = result;
 
         this.tooltipHeaderText.setText(result.name);
         this.tooltipDescText.setText(result.desc);

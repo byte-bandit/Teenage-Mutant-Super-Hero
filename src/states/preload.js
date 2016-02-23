@@ -86,13 +86,26 @@ Mutate.Preload.prototype = {
     this.load.image('intro5_2', 'media/intro/intro5_2.png');
 
     // Game over
-    this.load.image('gameOverDeadBoy', 'media/gameover/deadBoy.png');
     this.load.image('gameOverOld', 'media/gameover/old.png');
     this.load.image('win01', 'media/gameover/mutation1.png');
     this.load.image('win02', 'media/gameover/mutation2.png');
     this.load.image('win03', 'media/gameover/mutation3.png');
     this.load.image('win04', 'media/gameover/mutation4.png');
     this.load.image('btnTryAgain', 'media/gameover/tryagainButton.png');
+    this.load.image('gameOverBuy', 'media/gameover/buy.png');
+    this.load.image('gameOverCastor', 'media/gameover/castor.png');
+    this.load.image('gameOverFind', 'media/gameover/find.png');
+    this.load.image('gameOverFukushima', 'media/gameover/fukushima.png');
+    this.load.image('gameOverHeal', 'media/gameover/heal.png');
+    this.load.image('gameOverJetEngine', 'media/gameover/jetengine.png');
+    this.load.image('gameOverMicrowave', 'media/gameover/microwave.png');
+    this.load.image('gameOverPlay', 'media/gameover/play.png');
+    this.load.image('gameOverStudy', 'media/gameover/study.png');
+    this.load.image('gameOverSunBathing', 'media/gameover/sunbathing.png');
+    this.load.image('gameOverVaccine', 'media/gameover/vaccine.png');
+    this.load.image('gameOverVisit', 'media/gameover/visit.png');
+    this.load.image('gameOverXRay', 'media/gameover/xray.png');
+    this.load.image('gameOverBite', 'media/gameover/zoo.png');
 
     // Audio
     this.load.audio('sfxStamp', 'media/sounds/stamp.mp3');

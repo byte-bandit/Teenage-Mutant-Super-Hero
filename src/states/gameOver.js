@@ -8,10 +8,9 @@ Mutate.GameOver = function (game) {
 Mutate.GameOver.prototype = {
   constructor: Mutate.GameOver,
 
-  init: function(header, desc, resultState) {
-    this.header = header;
-    this.desc = desc;
-    this.resultState = resultState;
+  init: function(action, msg) {
+    this.action = action;
+    this.msg = msg;
   },
 
   create: function() {
@@ -19,17 +18,17 @@ Mutate.GameOver.prototype = {
     var header;
     var subHeader;
 
-    switch(this.resultState)
+    switch(this.msg)
     {
       case "win":
         img = Mutate.game.rnd.pick(['win01', 'win02', 'win03', 'win04']);
         header = "Worth it!";
         subHeader = "Not the hero we deserve, but the hero we need."
         break;
-      case "dead":
-        img = 'gameOverDeadBoy';
-        header = this.header;
-        subHeader = this.desc;
+      case "death":
+        img = this.action.killimg;
+        header = this.action.result.name;
+        subHeader = this.action.result.desc;
         break;
       case "old":
         img = 'gameOverOld';

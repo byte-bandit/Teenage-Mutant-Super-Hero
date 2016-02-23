@@ -30,6 +30,7 @@ Mutate.Actions = {
 		name: "Jet engine research",
 		desc: "Have you ever wondered what the inside looks like?",
 		img: "airportJetEngine",
+		killimg: "gameOverJetEngine",
 		iq: 80,
 		results:
 		[
@@ -60,6 +61,7 @@ Mutate.Actions = {
 		name: "Take a break",
 		desc: "Why don't you enjoy your youth on a vacation?",
 		img: "airportFukushima",
+		killimg: "gameOverFukushima",
 		iq: 110,
 		results:
 		[
@@ -90,6 +92,7 @@ Mutate.Actions = {
 		name: "Enjoy yourself",
 		desc: "Who needs sunscreen anyway?",
 		img: "homeSunbath",
+		killimg: "gameOverSunBath",
 		iq: 0,
 		results:
 		[
@@ -120,6 +123,7 @@ Mutate.Actions = {
 		name: "Make popcorn",
 		desc: "Oops! How did your hand get in there?",
 		img: "homeMicrowave",
+		killimg: "gameOverMicrowave",
 		iq: 0,
 		results:
 		[
@@ -150,6 +154,7 @@ Mutate.Actions = {
 		name: "Broken again...",
 		desc: "Time for your bi-weekly cancer checkup!",
 		img: "hospitalXRay",
+		killimg: "gameOverXRay",
 		iq: 90,
 		results:
 		[
@@ -180,6 +185,7 @@ Mutate.Actions = {
 		name: "Patch me up, doc!",
 		desc: "Have you secretly been eatin' plutonium again, son?",
 		img: "hospitalHeal",
+		killimg: "gameOverHeal",
 		results:
 		[
 			{
@@ -211,6 +217,7 @@ Mutate.Actions = {
 		name: "Candy shop",
 		desc: "What's gonna be in the bag today?",
 		img: "hospitalVaccine",
+		killimg: "gameOverVaccine",
 		iq: 90,
 		results:
 		[
@@ -241,6 +248,7 @@ Mutate.Actions = {
 		name: "Study",
 		desc: "You study hard to increase your IQ.",
 		img: "libraryStudy",
+		killimg: "gameOverStudy",
 		iq: 0,
 		results:
 		[
@@ -269,6 +277,7 @@ Mutate.Actions = {
 		name: "Find friends",
 		desc: "It's just like Flubber(c)(tm)!!!",
 		img: "powerplantPlay",
+		killimg: "gameOverPlay",
 		iq: 80,
 		results:
 		[
@@ -299,6 +308,7 @@ Mutate.Actions = {
 		name: "Field trip",
 		desc: "Nobody will notice if you go skinny dipping in the water.",
 		img: "powerplantVisit",
+		killimg: "gameOverVisit",
 		iq: 100,
 		results:
 		[
@@ -329,6 +339,7 @@ Mutate.Actions = {
 		name: "Serious Business",
 		desc: "Let's face it. What could possibly go wrong?",
 		img: "powerplantBuy",
+		killimg: "gameOverBuy",
 		iq: 110,
 		results:
 		[
@@ -359,6 +370,7 @@ Mutate.Actions = {
 		name: "A Quest!",
 		desc: "Time to find your rat martial arts trainer!",
 		img: "sewerFind",
+		killimg: "gameOverFind",
 		iq: 0,
 		results:
 		[
@@ -389,6 +401,7 @@ Mutate.Actions = {
 		name: "Demonstrate!",
 		desc: "Signal your opposition. For peace - of course.",
 		img: "tracksCastor",
+		killimg: "gameOverCastor",
 		iq: 100,
 		results:
 		[
@@ -419,6 +432,7 @@ Mutate.Actions = {
 		name: "Spiderbite",
 		desc: "Well ... it worked before?",
 		img: "zooBite",
+		killimg: "gameOverBite",
 		iq: 80,
 		results:
 		[
