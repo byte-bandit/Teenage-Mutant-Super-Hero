@@ -10,38 +10,17 @@ Mutate.Map.prototype = {
     
     create: function() {
         this.hotspots = [];
-
-        this.game.add.sprite(0, 0, 'msLayer4');
-        new Mutate.Sun(1280 - 128, 96);
-
-        this.spawnClouds();
-
-        this.game.add.sprite(0, 0, 'msLayer3');
-        this.createHotspot(543, 260, 'airport', [Mutate.Actions.JetEngine, Mutate.Actions.Fukushima]);
-        this.createHotspot(188, 255, 'hospital', [Mutate.Actions.XRay, Mutate.Actions.Heal, Mutate.Actions.Vaccine]);
-        this.createHotspot(1147, 294, 'powerplant', [Mutate.Actions.Play, Mutate.Actions.Visit, Mutate.Actions.Buy]);
-
-        this.game.add.sprite(0, 0, 'msLayer2');
-        this.createHotspot(330, 502, 'tracks', [Mutate.Actions.Castor]);
-        this.createHotspot(860, 355, 'library', [Mutate.Actions.Study]);
-        this.createHotspot(1242, 576, 'zoo', [Mutate.Actions.Bite]);
-
-        this.game.add.sprite(0, 0, 'msLayer1');
-        this.createHotspot(30, 478, 'home', [Mutate.Actions.Sunbath, Mutate.Actions.Microwave]);
-        this.createHotspot(703, 662, 'hole', [Mutate.Actions.Find]);
-
-        this.hud = new Mutate.Hud();
-
-        this.tooltipHeaderText = Mutate.Util.createText(0, 0, "", 32);
-        this.tooltipHeaderText.setTextBounds(16, 16, 1266, 48);
-        this.tooltipHeaderText.boundsAlignH = "center";
-        this.tooltipHeaderText.boundsAlignV = "middle";
-        this.tooltipDescText = Mutate.Util.createText(0, 0, "");
-        this.tooltipDescText.setTextBounds(16, 48, 1266, 72);
-        this.tooltipDescText.boundsAlignH = "center";
-        this.tooltipDescText.boundsAlignV = "middle";
+        this.createWorld();
 
         this.activeActions = this.game.add.group();
+        this.tooltips = this.game.add.group();
+        this.resultGroup = this.game.add.group();
+        this.resultGroup.pivot.x = this.game.world.centerX;
+        this.resultGroup.x = this.game.world.centerX;
+        this.resultGroup.pivot.y = 32;
+        this.resultGroup.y = 32;
+
+        this.hud = new Mutate.Hud();
 
         Mutate.GameManager.onWin.add(function(msg) {
             Mutate.game.state.start("Mutation");
@@ -105,13 +84,15 @@ Mutate.Map.prototype = {
     },
 
     updateTooltip: function(btn) {
-        this.tooltipHeaderText.setText(btn.action.name);
-        this.tooltipDescText.setText(btn.action.desc);
+        this.resultGroup.removeAll(true);
+        this.tooltips.add(Mutate.Util.createText(this.game.world.centerX, 0, btn.action.name, 48, 6));
+        this.tooltips.add(Mutate.Util.createText(this.game.world.centerX, 64, btn.action.desc, 24, 6));
+
+        this.tooltips.forEach(function(tip) {tip.anchor.setTo(0.5, 0.0);});
     },
 
     clearTooltip: function(btn) {
-        this.tooltipHeaderText.text = "";
-        this.tooltipDescText.text = "";
+        this.tooltips.removeAll(true);
     },
 
     actionClick: function(btn) {
@@ -121,6 +102,7 @@ Mutate.Map.prototype = {
         }
 
         this.activeActions.forEach(function(b) {
+            b.inputEnabled = false;
             Mutate.game.add.tween(b).to({ x: b.originalPosition.x, y: b.originalPosition.y }, 250, Phaser.Easing.Quadratic.Out, true).onComplete.add(function() { b.destroy(); });
             Mutate.game.add.tween(b).to({ alpha: 0 }, 250, Phaser.Easing.Quadratic.Out, true);
         }, this);
@@ -134,12 +116,43 @@ Mutate.Map.prototype = {
 
         this.lastAction.result = result;
 
-        this.tooltipHeaderText.setText(result.name);
-        this.tooltipDescText.setText(result.desc);
+        this.createResultText(result);
+
         this.hud.createStatModifiers(mods);
 
         Mutate.GameManager.getTheCarHarry();
 
         this.hud.updateInfo();
     },
+
+    createWorld: function() {
+        this.game.add.sprite(0, 0, 'msLayer4');
+        new Mutate.Sun(1280 - 128, 96);
+        this.spawnClouds();
+
+        this.game.add.sprite(0, 0, 'msLayer3');
+        this.createHotspot(543, 260, 'airport', [Mutate.Actions.JetEngine, Mutate.Actions.Fukushima]);
+        this.createHotspot(188, 255, 'hospital', [Mutate.Actions.XRay, Mutate.Actions.Heal, Mutate.Actions.Vaccine]);
+        this.createHotspot(1147, 294, 'powerplant', [Mutate.Actions.Play, Mutate.Actions.Visit, Mutate.Actions.Buy]);
+
+        this.game.add.sprite(0, 0, 'msLayer2');
+        this.createHotspot(330, 502, 'tracks', [Mutate.Actions.Castor]);
+        this.createHotspot(860, 355, 'library', [Mutate.Actions.Study]);
+        this.createHotspot(1242, 576, 'zoo', [Mutate.Actions.Bite]);
+
+        this.game.add.sprite(0, 0, 'msLayer1');
+        this.createHotspot(30, 478, 'home', [Mutate.Actions.Sunbath, Mutate.Actions.Microwave]);
+        this.createHotspot(703, 662, 'hole', [Mutate.Actions.Find]);
+    },
+
+    createResultText: function(result) {
+        this.resultGroup.add(Mutate.Util.createText(this.game.world.centerX, 8, result.name, 48, 6));
+        this.resultGroup.add(Mutate.Util.createText(this.game.world.centerX, 72, result.desc, 24, 6));
+        this.resultGroup.forEach(function(tip) {tip.anchor.setTo(0.5, 0.0);});
+
+
+
+        this.game.add.tween(this.resultGroup.scale).to({x: 1.2, y: 1.2}, 25, Phaser.Easing.Back.InOut, true, 0, 2, true);
+        this.game.add.tween(this.resultGroup).to({angle: 10}, 25, Phaser.Easing.Back.InOut, true, 0, 2, true);
+    }
 }
