@@ -12,6 +12,7 @@ Mutate.ButtonLib = {
 
 	onButtonDown: function(btn) {
 		Mutate.game.add.tween(btn.scale).to({x: .95, y: .95}, 100, Phaser.Easing.Bounce.Out, true);
+		Mutate.ButtonLib.playRandomClickSound();
 	},
 
 	onButtonUp: function(btn) {
@@ -28,6 +29,7 @@ Mutate.ButtonLib = {
 
 	onHotspotDown: function(btn) {
 		Mutate.game.add.tween(btn.scale).to({x: 1.0, y: 1.0}, 25, Phaser.Easing.Bounce.Out, true).yoyo(true);
+		Mutate.ButtonLib.playRandomClickSound();
 	},
 
 	createButton: function(x, y, image, callback, callbackContext)
@@ -67,5 +69,24 @@ Mutate.ButtonLib = {
 		}
 
 		return btn;
+	},
+
+	playRandomClickSound: function() {
+		Mutate.game.sound.play(Mutate.game.rnd.pick([
+			'btnClick01',
+			'btnClick02',
+			'btnClick03',
+			'btnClick04',
+			'btnClick05',
+			'btnClick06',
+			'btnClick07',
+			'btnClick08',
+			'btnClick09',
+			'btnClick10',
+			'btnClick11',
+			'btnClick12',
+			'btnClick13',
+			'btnClick14',
+			'btnClick15']));
 	}
 };

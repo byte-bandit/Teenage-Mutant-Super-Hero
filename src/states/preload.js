@@ -118,6 +118,21 @@ Mutate.Preload.prototype = {
 
     // Audio
     this.load.audio('sfxStamp', 'media/sounds/stamp.mp3');
+    this.load.audio('btnClick01', 'media/randomClickSounds/1.mp3');
+    this.load.audio('btnClick02', 'media/randomClickSounds/2.mp3');
+    this.load.audio('btnClick03', 'media/randomClickSounds/3.mp3');
+    this.load.audio('btnClick04', 'media/randomClickSounds/4.mp3');
+    this.load.audio('btnClick05', 'media/randomClickSounds/5.mp3');
+    this.load.audio('btnClick06', 'media/randomClickSounds/6.mp3');
+    this.load.audio('btnClick07', 'media/randomClickSounds/7.mp3');
+    this.load.audio('btnClick08', 'media/randomClickSounds/8.mp3');
+    this.load.audio('btnClick09', 'media/randomClickSounds/9.mp3');
+    this.load.audio('btnClick10', 'media/randomClickSounds/10.mp3');
+    this.load.audio('btnClick11', 'media/randomClickSounds/11.mp3');
+    this.load.audio('btnClick12', 'media/randomClickSounds/12.mp3');
+    this.load.audio('btnClick13', 'media/randomClickSounds/13.mp3');
+    this.load.audio('btnClick14', 'media/randomClickSounds/14.mp3');
+    this.load.audio('btnClick15', 'media/randomClickSounds/15.mp3');
   },
 
   create: function() {
