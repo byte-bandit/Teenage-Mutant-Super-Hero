@@ -22,7 +22,7 @@ Mutate.Mutation.prototype.create = function() {
     this.playerOld = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'winPremutation');
     this.playerOld.anchor.setTo(0.5);
     this.playerOld.filters = [this.filterPixelate, this.filterColorMatrix];
-    this.playerNew = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, Mutate.game.rnd.pick(['win01', 'win02', 'win03', 'win04']));
+    this.playerNew = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, Mutate.game.rnd.pick(['win01', 'win02', 'win03', 'win04', 'win05']));
     this.playerNew.anchor.setTo(0.5);
     this.playerNew.scale.setTo(0);
     this.playerNew.filters = [this.filterPixelate, this.filterColorMatrix];
