@@ -41,6 +41,9 @@ Mutate.Mutation.prototype.create = function() {
 
     this.tweenFilter = false;
     this.currentWhite = 0;
+
+    this.game.sound.stopAll();
+    this.game.sound.play('musicEvolution').onStop.add(function() {this.game.sound.play('musicEvolved');}, this);
 }
 
 Mutate.Mutation.prototype.updateText = function() {

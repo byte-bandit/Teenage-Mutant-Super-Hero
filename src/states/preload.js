@@ -134,6 +134,12 @@ Mutate.Preload.prototype = {
     this.load.audio('btnClick13', 'media/randomClickSounds/13.mp3');
     this.load.audio('btnClick14', 'media/randomClickSounds/14.mp3');
     this.load.audio('btnClick15', 'media/randomClickSounds/15.mp3');
+
+    // Music
+    this.load.audio('musicEvolution', 'media/sounds/evolution.mp3');
+    this.load.audio('musicEvolved', 'media/sounds/evolved.mp3');
+    this.load.audio('musicMugge', 'media/sounds/mugge.mp3');
+    this.load.audio('musicTurtles', 'media/sounds/turtles.mp3');
   },
 
   create: function() {

@@ -90,6 +90,8 @@ Mutate.Intro.prototype.create = function() {
     this.skipButton.events.onInputDown.add(Mutate.ButtonLib.onButtonDown);
     this.skipButton.events.onInputDown.add(this.skip, this);
 
+    this.game.sound.play('musicTurtles');
+
     this.nextScene();
 }
 

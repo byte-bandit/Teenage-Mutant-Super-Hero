@@ -29,6 +29,8 @@ Mutate.Map.prototype = {
          Mutate.GameManager.onLoose.add(function(msg) {
             Mutate.game.state.start("GameOver", true, false, this.lastAction, msg);
         }, this);
+
+         this.game.sound.play('musicMugge', 1, true);
     },
 
     spawnClouds: function() {
