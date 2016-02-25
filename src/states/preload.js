@@ -101,6 +101,8 @@ Mutate.Preload.prototype = {
     this.load.image('win03', 'media/gameover/mutation3.png');
     this.load.image('win04', 'media/gameover/mutation4.png');
     this.load.image('win05', 'media/gameover/mutation5.png');
+	this.load.image('win06', 'media/gameover/mutation6.png');
+	this.load.image('win07', 'media/gameover/mutation7.png');
     this.load.image('btnTryAgain', 'media/gameover/tryagainButton.png');
     this.load.image('gameOverBuy', 'media/gameover/buy.png');
     this.load.image('gameOverCastor', 'media/gameover/castor.png');
