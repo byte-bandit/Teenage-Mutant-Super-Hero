@@ -8,6 +8,7 @@ var WebFontConfig = {};
     this.game = new Phaser.Game(width, height, Phaser.AUTO, "", {preload: this.onPreload, create: this.onCreate, update: this.onUpdate, render: this.onRender}, false, true);
 
     Mutate.game = this.game;
+    this.game.canvas.oncontextmenu = function(e) { e.preventDefault(); }
   };
 
   Mutate.Engine.prototype = {
