@@ -21,6 +21,7 @@ Mutate.Preload.prototype = {
     this.load.script('src/defines/actions');
     this.load.script('src/player');
     this.load.script('src/gameManager');
+    this.load.script('src/musicManager');
     this.load.script('src/hud');
     this.load.script('src/sun');
     this.load.script('src/states/intro');
@@ -140,6 +141,7 @@ Mutate.Preload.prototype = {
     // Music
     this.load.audio('musicEvolution', 'media/sounds/evolution.mp3');
     this.load.audio('musicEvolved', 'media/sounds/evolved.mp3');
+    this.load.audio('musicMenu', 'media/sounds/menu.mp3');
     this.load.audio('musicMugge', 'media/sounds/mugge.mp3');
     this.load.audio('musicTurtles', 'media/sounds/turtles.mp3');
   },

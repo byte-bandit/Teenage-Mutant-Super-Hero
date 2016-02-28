@@ -42,8 +42,7 @@ Mutate.Mutation.prototype.create = function() {
     this.tweenFilter = false;
     this.currentWhite = 0;
 
-    this.game.sound.stopAll();
-    this.game.sound.play('musicEvolution').onStop.add(function() {this.game.sound.play('musicEvolved');}, this);
+    Mutate.MusicManager.PlayEvolutionMusic();
 }
 
 Mutate.Mutation.prototype.updateText = function() {
@@ -100,6 +99,8 @@ Mutate.Mutation.prototype.swapFinished = function() {
 
     var t = this.game.add.tween(this.topBG).to({alpha: 1}, 1000, Phaser.Easing.Linear.None);
     this.emitter.start(false, 4000, 15);
+
+    Mutate.MusicManager.PlayEvolvedMusic();
     
     t.onComplete.add(function() {
         var heroname = Mutate.Player.getHeroName();

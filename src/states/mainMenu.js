@@ -24,6 +24,8 @@ Mutate.MainMenu.prototype = {
     this.game.add.tween(this.company.scale).to({x:1.05, y:1.05}, 1000, Phaser.Easing.Linear.None, true, 0, -1, true);
 
     Mutate.ButtonLib.createButton(this.game.world.centerX, this.game.world.height * 0.75, 'startbutton', this.startGame, this);
+
+    Mutate.MusicManager.PlayMenuMusic();
   },
 
   update: function() {
