@@ -40,7 +40,7 @@ Mutate.Actions = {
 				desc: "Well, now you know.",
 				mod: function() {
 					return [
-					Mutate.Actions.Roll(Mutate.Stats.LIFE, -20, -5), 
+					Mutate.Actions.Roll(Mutate.Stats.LIFE, -20, -10), 
 					Mutate.Actions.Roll(Mutate.Stats.IQ, -7, -3), 
 					Mutate.Actions.Roll(Mutate.Stats.MUTATION, .9, 1.2)];
 				}
@@ -71,7 +71,7 @@ Mutate.Actions = {
 				desc: "A great addition to your family photo album.",
 				mod: function() {
 					return [
-					Mutate.Actions.Roll(Mutate.Stats.LIFE, -10, 0), 
+					Mutate.Actions.Roll(Mutate.Stats.LIFE, -15, 0), 
 					Mutate.Actions.Roll(Mutate.Stats.IQ, -3, 0), 
 					Mutate.Actions.Roll(Mutate.Stats.MUTATION, 1, 5)];
 				}
@@ -102,7 +102,7 @@ Mutate.Actions = {
 				desc: "You know what they say about sunburns, right?",
 				mod: function() {
 					return [
-					Mutate.Actions.Roll(Mutate.Stats.LIFE, -3, -1), 
+					Mutate.Actions.Roll(Mutate.Stats.LIFE, -8, -3), 
 					Mutate.Actions.Roll(Mutate.Stats.IQ, -2, -1), 
 					Mutate.Actions.Roll(Mutate.Stats.MUTATION, .1, .2)];
 				}
@@ -133,7 +133,7 @@ Mutate.Actions = {
 				desc: "Those extra fingers will come in handy...",
 				mod: function() {
 					return [
-					Mutate.Actions.Roll(Mutate.Stats.LIFE, -4, -2), 
+					Mutate.Actions.Roll(Mutate.Stats.LIFE, -12, -5), 
 					Mutate.Actions.Roll(Mutate.Stats.IQ, 0, 0), 
 					Mutate.Actions.Roll(Mutate.Stats.MUTATION, .3, .5)];
 				}
@@ -164,7 +164,7 @@ Mutate.Actions = {
 				desc: "Don't forget to grab your bonus sticker on the way out.",
 				mod: function() {
 					return [
-					Mutate.Actions.Roll(Mutate.Stats.LIFE, -4, -1), 
+					Mutate.Actions.Roll(Mutate.Stats.LIFE, -6, -2), 
 					Mutate.Actions.Roll(Mutate.Stats.IQ, -3, -1), 
 					Mutate.Actions.Roll(Mutate.Stats.MUTATION, .8, 1.1)];
 				}
@@ -227,7 +227,7 @@ Mutate.Actions = {
 				desc: "I'll be honest. I'm surprised.",
 				mod: function() {
 					return [
-					Mutate.Actions.Roll(Mutate.Stats.LIFE, -10, 10), 
+					Mutate.Actions.Roll(Mutate.Stats.LIFE, -20, 10), 
 					Mutate.Actions.Roll(Mutate.Stats.IQ, -10, 10), 
 					Mutate.Actions.Roll(Mutate.Stats.MUTATION, -1, 1.5)];
 				}
@@ -287,7 +287,7 @@ Mutate.Actions = {
 				desc: "You need to make some solid life decisions...",
 				mod: function() {
 					return [
-					Mutate.Actions.Roll(Mutate.Stats.LIFE, -10, -3), 
+					Mutate.Actions.Roll(Mutate.Stats.LIFE, -15, -10), 
 					Mutate.Actions.Roll(Mutate.Stats.IQ, -6, -4), 
 					Mutate.Actions.Roll(Mutate.Stats.MUTATION, 1, 1.5)];
 				}
@@ -318,7 +318,7 @@ Mutate.Actions = {
 				desc: "Much science. Wow.",
 				mod: function() {
 					return [
-					Mutate.Actions.Roll(Mutate.Stats.LIFE, -5, -1), 
+					Mutate.Actions.Roll(Mutate.Stats.LIFE, -8, -2), 
 					Mutate.Actions.Roll(Mutate.Stats.IQ, -2, 2), 
 					Mutate.Actions.Roll(Mutate.Stats.MUTATION, 1, 1.5)];
 				}
@@ -349,7 +349,7 @@ Mutate.Actions = {
 				desc: "Piece o' cake! Dig in, brother!",
 				mod: function() {
 					return [
-					Mutate.Actions.Roll(Mutate.Stats.LIFE, -5, 0), 
+					Mutate.Actions.Roll(Mutate.Stats.LIFE, -10, -1), 
 					Mutate.Actions.Roll(Mutate.Stats.IQ, -5, 0), 
 					Mutate.Actions.Roll(Mutate.Stats.MUTATION, 1.5, 3)];
 				}
@@ -380,7 +380,7 @@ Mutate.Actions = {
 				desc: "Lot's of rats but no trainer. Plenty of pizza though!",
 				mod: function() {
 					return [
-					Mutate.Actions.Roll(Mutate.Stats.LIFE, -5, -1), 
+					Mutate.Actions.Roll(Mutate.Stats.LIFE, -15, -4), 
 					Mutate.Actions.Roll(Mutate.Stats.IQ, -7, -3), 
 					Mutate.Actions.Roll(Mutate.Stats.MUTATION, .4, .6)];
 				}
@@ -411,7 +411,7 @@ Mutate.Actions = {
 				desc: "You really stood up to the man today!",
 				mod: function() {
 					return [
-					Mutate.Actions.Roll(Mutate.Stats.LIFE, -10, -1), 
+					Mutate.Actions.Roll(Mutate.Stats.LIFE, -15, -4), 
 					Mutate.Actions.Roll(Mutate.Stats.IQ, -3, 0), 
 					Mutate.Actions.Roll(Mutate.Stats.MUTATION, 1.2, 1.7)];
 				}
@@ -442,7 +442,7 @@ Mutate.Actions = {
 				desc: "Just wait until tomorrow...",
 				mod: function() {
 					return [
-					Mutate.Actions.Roll(Mutate.Stats.LIFE, -7, -1), 
+					Mutate.Actions.Roll(Mutate.Stats.LIFE, -12, -3), 
 					Mutate.Actions.Roll(Mutate.Stats.IQ, -4, -1), 
 					Mutate.Actions.Roll(Mutate.Stats.MUTATION, .8, 1.1)];
 				}
