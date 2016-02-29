@@ -34,6 +34,7 @@ Mutate.GameOver.prototype = {
         img = this.action.killimg;
         header = this.action.result.name;
         subHeader = this.action.result.desc;
+		Mutate.game.sound.play('musicDeath');
         break;
       case "old":
         img = 'gameOverOld';

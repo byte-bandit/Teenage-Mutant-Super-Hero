@@ -144,6 +144,7 @@ Mutate.Preload.prototype = {
     this.load.audio('musicMenu', 'media/sounds/menu.mp3');
     this.load.audio('musicMugge', 'media/sounds/mugge.mp3');
     this.load.audio('musicTurtles', 'media/sounds/turtles.mp3');
+	this.load.audio('musicDeath', 'media/sounds/death.mp3');
   },
 
   create: function() {
